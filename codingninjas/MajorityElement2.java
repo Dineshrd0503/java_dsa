@@ -45,7 +45,7 @@ public class MajorityElement2 {
     public static List< Integer > majorityElement(int []v) {
         List<Integer> result=new ArrayList<>();
         int value=v.length/3;
-        Map<Integer,Integer> map=new HashMap();
+        Map<Integer,Integer> map=new HashMap<>();
         for(int n:v)
             map.put(n,map.getOrDefault(n,0)+1);
         for(Map.Entry<Integer,Integer> entry:map.entrySet()){
