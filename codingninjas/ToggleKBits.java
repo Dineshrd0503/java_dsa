@@ -32,11 +32,11 @@
 //Explanation For Sample Input 2:
 //In example 1, the binary representation of 20 is '10100'. After toggling rightmost 2 bits, it becomes ‘10111’ which is equal to 23.
 //In example 2, the binary representation of 85 is ‘1010101’. After toggling rightmost 5 bits, it becomes ‘1001010’ which is equal to 74.
-
+package codingninjas;
 
 import java.util.*;
 
-public class Solution {
+public class ToggleKBits {
     public static int toggleKBits(int n, int k) {
         // Create the mask by shifting 1 to the left K times and subtracting 1
         int mask = (1 << k) - 1;
