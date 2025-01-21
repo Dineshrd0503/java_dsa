@@ -50,7 +50,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Solution {
+public class PairWithSmallestDifference {
     
     // Method to find the smallest difference pair
     public static int smallestDifferencePair(ArrayList<Integer> arr1, int n, ArrayList<Integer> arr2, int m) {
