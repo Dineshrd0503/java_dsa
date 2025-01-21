@@ -13,12 +13,12 @@
 //        1 <= arr[i] <= 109
 
 
-
+package geeksforgeeks;
 
 import java.util.Arrays;
 
-class Solution {
-    public int minimumDifference(int[] nums) {
+public class MinDifferenceIn1DArray {
+    public static int minimumDifference(int[] nums) {
         // Sort the array
         Arrays.sort(nums);
         
@@ -34,12 +34,11 @@ class Solution {
         return minDiff;
     }
 
-    public static void main(String[] args) {
-        Solution sol = new Solution();
+    public static void main(String[] args){
         int[] arr1 = {2, 4, 5, 9, 7}; // Example 1
         int[] arr2 = {3, 10, 8, 6};   // Example 2
         
-        System.out.println("Minimum difference: " + sol.minimumDifference(arr1)); // Output: 1
-        System.out.println("Minimum difference: " + sol.minimumDifference(arr2)); // Output: 2
+        System.out.println("Minimum difference: " + minimumDifference(arr1)); // Output: 1
+        System.out.println("Minimum difference: " + minimumDifference(arr2)); // Output: 2
     }
 }
