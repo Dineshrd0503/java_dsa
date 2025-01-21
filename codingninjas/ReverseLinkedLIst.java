@@ -35,25 +35,19 @@ public class ReverseLinkedLIst {
     }
     public static Node reverseLinkedList(Node head)
     {
-        Node temp=null;
-        Node next;
-        while(head!=null){
-            next=head.next;
-            if(head==null){
-                temp=head;
-                temp.next=null;
+        Node prev=null;
+        Node temp=head;
+        while(temp!=null){
+            Node front=temp.next;
+            temp.next=prev;
+            prev=temp;
+            temp=front;
 
-            }
-            else{
-                head.next=temp;
-                temp=head;
-
-            }
-            head=next;
         }
-        return temp;
-        // Write your code here.
+        return prev;
+
     }
+        // Write your code here.
     public static void main(String[] args) {
         System.out.println("reversing the linked list");
         Node head=new Node(1);
