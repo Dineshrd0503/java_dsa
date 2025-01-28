@@ -1,3 +1,5 @@
+
+package patterns;
 // Problem statement:
 // You have been given an input integer 'N'. Your task is to print the following binary pattern for it.
 
@@ -81,5 +83,10 @@ public static void print(int n) {
 
 		}
 		
+	}
+	public static void main(String[] args) {
+		System.out.println("printing the binary pattern");
+		int n=4;
+		print(n);
 	}
 }
