@@ -23,29 +23,35 @@ import java.util.Arrays;
 
 
 public class KokoEatingBananas {
-    public static int kokoEat(int[] arr, int k) {
-        // code here
-        Arrays.sort(arr);
-        int low=1,high=Arrays.stream(arr).max().getAsInt();
-        while(low<=high){
-            int mid=low+(high-low)/2;
-            int hours=calculateHours(arr,mid);
-            if(hours<=k)
-                high=mid-1;
-            else
-                low=mid+1;
+    public static int calculateTotalHours(int[] v, int hourly) {
+        int totalH = 0;
+        int n = v.length;
+        //find total hours:
+        for (int i = 0; i < n; i++) {
+            totalH += Math.ceil((double)(v[i]) / (double)(hourly));
+        }
+        return totalH;
+    }
+
+    public static int minimumRateToEatBananas(int[] v, int h) {
+        Arrays.sort(v);
+        int low = 1, high = Arrays.stream(v).max().getAsInt();
+
+        //apply binary search:
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            int totalH = calculateTotalHours(v, mid);
+            if (totalH <= h) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
         }
         return low;
-    }
-    private static int calculateHours(int[] a,int mid){
-        int totalhours=0;
-        for(int i:a)
-            totalhours+=(int) Math.ceil((double)i/(double) mid);
-        return totalhours;
     }
     public static void main(String[] args) {
         int arr[]={3,6,7,11};
         int k=8;
-        System.out.println(kokoEat(arr,k));
+        System.out.println(calculateTotalHours(arr,k));
     }
 }
