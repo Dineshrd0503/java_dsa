@@ -1,7 +1,8 @@
+package codingninjas;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/Problem statement
+///Problem statement
 //You have been given a non-empty grid ‘MAT’ consisting of only 0s and 1s. Your task is to modify it in such a way that if a cell has value 1 (MAT[i][j] == 1), then all the cells of the i-th row and j-th column should be changed to 1.
 //
 //For Example
@@ -80,37 +81,40 @@ public class SetMatrixOnes {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        // Read number of test cases
-        int T = scanner.nextInt();
-        while (T-- > 0) {
-            // Read dimensions of the matrix
-            int N = scanner.nextInt();
-            int M = scanner.nextInt();
-            
-            // Create the matrix
-            ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
-            for (int i = 0; i < N; i++) {
-                ArrayList<Integer> row = new ArrayList<>();
-                for (int j = 0; j < M; j++) {
-                    row.add(scanner.nextInt());
+        int t = 2;
+        int[][][] testCases = {
+                {
+                        {1, 0},
+                        {0, 0}
+                },
+                {
+                        {1, 0, 0, 1},
+                        {0, 0, 1, 0},
+                        {0, 0, 0, 0}
                 }
-                matrix.add(row);
+        };
+
+        for (int[][] testCase : testCases) {
+            int n = testCase.length;
+            int m = testCase[0].length;
+            ArrayList<ArrayList<Integer>> mat = new ArrayList<>();
+            for (int[] row : testCase) {
+                ArrayList<Integer> rowList = new ArrayList<>();
+                for (int val : row) {
+                    rowList.add(val);
+                }
+                mat.add(rowList);
             }
-
-            // Call the function to modify the matrix
-            setMatrixOnes(matrix, N, M);
-
-            // Print the modified matrix
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
-                    System.out.print(matrix.get(i).get(j) + " ");
+            setMatrixOnes(mat, n, m);
+            for (ArrayList<Integer> row : mat) {
+                for (int val : row) {
+                    System.out.print(val + " ");
                 }
                 System.out.println();
             }
         }
-        
-        scanner.close();
     }
+
+
+
 }
