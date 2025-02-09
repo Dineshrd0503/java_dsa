@@ -18,7 +18,7 @@ import java.util.Arrays;
 //Output: 0
 //Explanation: No triangles are possible.
 //Constraints:
-public class CountPossibleTriangles {
+public class    CountPossibleTriangles {
     static int countTriangles(int arr[]) {
         // code here
         Arrays.sort(arr);
