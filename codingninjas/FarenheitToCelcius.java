@@ -1,6 +1,7 @@
+package codingninjas;
 import java.util.*;
 
-roblem statement
+//roblem statement
 // Ninja has been assigned to convert temperature from Fahrenheit to Celsius. He has been given a starting Fahrenheit Value (S), ending Fahrenheit value (E), and step size (W). Unfortunately, he does not know how to convert from Fahrenheit to Celsius. Please help him to find the result.
 
 // Detailed explanation ( Input/output format, Notes, Images )

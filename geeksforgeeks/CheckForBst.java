@@ -1,3 +1,4 @@
+package geeksforgeeks;
 //Check for BST
 // Difficulty: EasyAccuracy: 25.37%Submissions: 558K+Points: 2Average Time: 30m
 // Given the root of a binary tree. Check whether it is a BST or not.
@@ -44,7 +45,7 @@ public class CheckForBst {
 
 
     // Main function to check if the tree is a BST.
-    boolean isBST(Node root) {
+   static  boolean isBST(Node root) {
         // Call the helper function with the initial min and max values.
         int min = Integer.MIN_VALUE;
         int max = Integer.MAX_VALUE;
@@ -69,21 +70,19 @@ public class CheckForBst {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-
         // Test Case 1: A valid Binary Search Tree (BST)
         Node root1 = new Node(2);
         root1.left = new Node(1);
         root1.right = new Node(3);
         
-        System.out.println("Test Case 1: " + solution.isBST(root1)); // Output: true
+        System.out.println("Test Case 1: " + isBST(root1)); // Output: true
         
         // Test Case 2: A tree that is NOT a BST
         Node root2 = new Node(2);
         root2.left = new Node(3);  // Left child is greater than root (violation)
         root2.right = new Node(1); // Right child is smaller than root (violation)
         
-        System.out.println("Test Case 2: " + solution.isBST(root2)); // Output: false
+        System.out.println("Test Case 2: " + isBST(root2)); // Output: false
         
         // Test Case 3: Another valid BST
         Node root3 = new Node(10);
@@ -94,12 +93,12 @@ public class CheckForBst {
         root3.right.left = new Node(12);
         root3.right.right = new Node(20);
         
-        System.out.println("Test Case 3: " + solution.isBST(root3)); // Output: true
+        System.out.println("Test Case 3: " + isBST(root3)); // Output: true
 
         // Test Case 4: A tree with duplicate values (should not be a BST)
         Node root4 = new Node(5);
         root4.left = new Node(5);  // Duplicate value (violation of BST property)
         
-        System.out.println("Test Case 4: " + solution.isBST(root4)); // Output: false
+        System.out.println("Test Case 4: " + isBST(root4)); // Output: false
     }
 }
