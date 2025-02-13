@@ -1,6 +1,5 @@
 package codingninjas;
 
-package strings;
 
 ///Problem statement
 //You are given a string ‘S’ consisting of alphanumeric characters, the string divided into groups by a ‘-’. Your task is to reformat the string that all the groups contain exactly ‘K’ characters. All the lowercase characters should be converted to uppercase.
