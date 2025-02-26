@@ -1,4 +1,4 @@
-
+package codingninjas;
 // Problem statement
 // You are given an array 'ARR' consisting of 'N' non-negative integers, your task is to copy the elements of 'ARR' into another array 'COPY_ARR' in reverse order.
 
