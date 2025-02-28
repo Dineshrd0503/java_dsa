@@ -1,3 +1,4 @@
+package geeksforgeeks;
 import java.util.ArrayList;
 
 /*
@@ -38,7 +39,7 @@ import java.util.ArrayList;
  */
 
 
-public class FindFirstAndLastPosOfEleInArray {
+public  class FindFirstAndLastPosOfEleInArray{
     ArrayList<Integer> find(int arr[], int x) {
         // Create an ArrayList to store the results
         ArrayList<Integer> result = new ArrayList<>();
