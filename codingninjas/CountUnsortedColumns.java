@@ -1,4 +1,4 @@
-package strings;
+package codingninjas;
 // Class to count the number of unsorted columns in an array of strings
 public class CountUnsortedColumns {
 
