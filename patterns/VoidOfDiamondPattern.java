@@ -56,7 +56,7 @@ public class VoidOfDiamondPattern {
     public static void main(String[] args) {
         System.out.println("void of diamond pattern");
         int n = 5;
-        String[] pattern = generateDiamondPattern(n);
+        String[] pattern = printVoidOfDiamond(n);
         for (String line : pattern) {
             System.out.println(line);
         }
