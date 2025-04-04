@@ -10,25 +10,24 @@ public class VoidOfDiamondPattern {
         }
     }
 
-    public static String[] generateDiamondPattern(int n) {
-        String[] pattern = new String[2 * n - 1];
-        int index = 0;
-        for (int i = 1; i <= n; i++) {
-            StringBuilder row = new StringBuilder();
-            for (int j = 1; j <= n - i; j++)
-                row.append(" ");
-            for (int j = 1; j <= 2 * i - 1; j++)
+    public static String[] printVoidOfDiamond(int N) {
+	String[] pattern = new String[N];
+    int mid = N / 2;
+
+    for (int i = 0; i < N; i++) {
+        StringBuilder row = new StringBuilder();
+        for (int j = 0; j < N; j++) {
+            if (i == 0 || i == N - 1 || j == 0 || j == N - 1) {
                 row.append("*");
-            pattern[index++] = row.toString();
-        }
-        for (int i = n - 1; i >= 1; i--) {
-            StringBuilder row = new StringBuilder();
-            for (int j = 1; j <= n - i; j++)
+            } else if (Math.abs(mid - i) + Math.abs(mid - j) <= mid - 1) {
                 row.append(" ");
-            for (int j = 1; j <= 2 * i - 1; j++)
+            } else {
                 row.append("*");
-            pattern[index++] = row.toString();
+            }
         }
-        return pattern;
+        pattern[i] = row.toString();
     }
+    return pattern;
+		// Write your code here
+	}
 }
