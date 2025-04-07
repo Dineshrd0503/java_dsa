@@ -33,65 +33,38 @@ public class UndirectedGraphCycle {
      * @return True if the graph contains a cycle; false otherwise.
      */
     public boolean isCycle(int v, int[][] edges) {
-        // Step 1: Build adjacency list
-        List<List<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i < v; i++) {
-            adj.add(new ArrayList<>());
-        }
-        for (int[] edge : edges) {
-            adj.get(edge[0]).add(edge[1]);
-            adj.get(edge[1]).add(edge[0]); // Undirected graph
-        }
+        // Code here
+        List<List<Integer>> list=new ArrayList<>();
+        for(int i=0;i<v;i++)
+            list.add(new ArrayList<>());
+        for(int[] edge:edges){
+            list.get(edge[0]).add(edge[1]);
+            list.get(edge[1]).add(edge[0]);
 
-        // Step 2: Initialize visited array
-        boolean[] visited = new boolean[v];
+        }
+        boolean[] vis=new boolean[v];
+        for(int i=0;i<v;i++){
+            if(!vis[i]){
+                if(dfs(list,i,-1,vis))
+                    return true;
 
-        // Step 3: Perform BFS from each unvisited node
-        for (int i = 0; i < v; i++) {
-            if (!visited[i]) { // Only start BFS from unvisited nodes
-                if (bfscycle(i, adj, visited)) {
-                    return true; // Return true if a cycle is detected
-                }
             }
         }
         return false;
     }
-
-    /**
-     * Helper method to check for cycles using BFS.
-     *
-     * @param start  Starting vertex for BFS.
-     * @param adj    Adjacency list representation of the graph.
-     * @param visited Array to track visited vertices.
-     * @return True if a cycle is detected; false otherwise.
-     */
-    private boolean bfscycle(int start, List<List<Integer>> adj, boolean[] visited) {
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{start, -1});
-        visited[start] = true;
-
-        while (!queue.isEmpty()) {
-            int[] pair = queue.poll();
-            int node = pair[0];
-            int parent = pair[1];
-
-            for (int neighbour : adj.get(node)) {
-                if (!visited[neighbour]) {
-                    visited[neighbour] = true;
-                    queue.add(new int[]{neighbour, node});
-                } else if (neighbour != parent) {
-                    return true; // Cycle detected
-                }
+    private static boolean dfs(List<List<Integer>>list,int node,int parent,boolean[] vis){
+        vis[node]=true;
+        for(int neighbour:list.get(node)){
+            if(!vis[neighbour]){
+                if(dfs(list,neighbour,node,vis))
+                    return true;
             }
+            else if(neighbour!=parent)
+                return true;
+
         }
         return false;
     }
-
-    /**
-     * Main method to test the functionality with example inputs.
-     *
-     * @param args Command-line arguments (not used).
-     */
     public static void main(String[] args) {
         UndirectedGraphCycle solution = new UndirectedGraphCycle();
 
