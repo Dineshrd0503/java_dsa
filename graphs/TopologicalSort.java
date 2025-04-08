@@ -28,7 +28,7 @@ import java.util.*;
  * [1, 2, 3, 0]
  * [2, 3, 1, 0]
  *
- * Input: V = 6, E = 6, edges[][] = [[1, 3], [2, 3], [4, 1], [4, 0], [5, 0], [5,2]]
+ * Inpu     t: V = 6, E = 6, edges[][] = [[1, 3], [2, 3], [4, 1], [4, 0], [5, 0], [5,2]]
  * Output: true
  * Explanation: The output true denotes that the order is valid. Few valid Topological orders for the graph are:
  * [4, 5, 0, 1, 2, 3]
