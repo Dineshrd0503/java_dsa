@@ -1,3 +1,6 @@
+package codingninjas7dayschallenge;
+
+
 // PowerOfNumbers.java
 public class PowerOfNumbers {
     
