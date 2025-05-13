@@ -25,36 +25,90 @@ import java.util.Map;
 //        1 ≤ number of nodes ≤ 103
 //        0 ≤ nodes -> data ≤ 103
 
+// Problem Description:
+// Given the preorder and inorder traversals of a binary tree, construct the binary tree.
+// Preorder: Root -> Left -> Right
+// Inorder: Left -> Root -> Right
+// Note: Duplicates do not exist in the traversals.
+
+// Constraints:
+// 1 <= N <= 3000
+// 1 <= data <= 10^4
+
+// Test Cases:
+// 1. N = 5, preorder = [1, 2, 4, 7, 3], inorder = [4, 2, 7, 1, 3]
+//    Output: Tree with root 1, structure: 1(2(4,7), 3)
+// 2. N = 2, preorder = [1, 2], inorder = [2, 1]
+//    Output: Tree with root 1, structure: 1(2, null)
+
+// Definition of TreeNode class
+
 public class ConstructTreeFromInorderPreorder {
-    public static Node buildTree(int inorder[], int preorder[]) {
-        // code here
-        Map<Integer,Integer> map=new HashMap<>();
-        for(int i=0;i<inorder.length;i++)
-            map.put(inorder[i],i);
-        return constructree(inorder,preorder,0,inorder.length-1,0,map);
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+            left = null;
+            right = null;
+        }
     }
-    public static Node constructree(int inorder[],int preorder[],int instart,int inend,int preindex,Map<Integer,Integer> map){
-        if(instart>inend)
+
+    private static HashMap<Integer, Integer> inorderMap;
+    private static int preIndex;
+
+    public static TreeNode buildBinaryTree(int[] inorder, int[] preorder) {
+        inorderMap = new HashMap<>();
+        preIndex = 0;
+
+        for (int i = 0; i < inorder.length; i++) {
+            inorderMap.put(inorder[i], i);
+        }
+
+        return buildTreeHelper(preorder, 0, inorder.length - 1);
+    }
+
+    private static TreeNode buildTreeHelper(int[] preorder, int inStart, int inEnd) {
+        if (inStart > inEnd) {
             return null;
-        Node root=new Node(preorder[preindex]);
-        int inindex=map.get(preorder[preindex]);
-        root.left=constructree(inorder,preorder,instart,inindex-1,preindex+1,map);
-        root.right=constructree(inorder,preorder,inindex+1,inend,preindex+(inindex-instart+1),map);
+        }
+
+        int rootVal = preorder[preIndex];
+        preIndex++;
+        TreeNode root = new TreeNode(rootVal);
+
+        int rootIndex = inorderMap.get(rootVal);
+
+        root.left = buildTreeHelper(preorder, inStart, rootIndex - 1);
+        root.right = buildTreeHelper(preorder, rootIndex + 1, inEnd);
+
         return root;
     }
-    public static void printInorder(Node root){
-        if(root==null)
+
+    private static void printPreorder(TreeNode root) {
+        if (root == null) {
             return;
-        printInorder(root.left);
-        System.out.print(root.data+" ");
-        printInorder(root.right);
+        }
+        System.out.print(root.val + " ");
+        printPreorder(root.left);
+        printPreorder(root.right);
     }
+
     public static void main(String[] args) {
-        // Create a sample tree
-        int inorder[] = {4,2,5,1,6,3};
-        int preorder[] = {1,2,4,5,3,6};
-        Node root = buildTree(inorder,preorder);
-        System.out.println("Inorder traversal of the constructed tree is ");
-        printInorder(root);
+        int[] preorder1 = {1, 2, 4, 7, 3};
+        int[] inorder1 = {4, 2, 7, 1, 3};
+        TreeNode root1 = buildBinaryTree(inorder1, preorder1);
+        System.out.print("Test 1 Preorder: ");
+        printPreorder(root1);
+        System.out.println();
+
+        int[] preorder2 = {1, 2};
+        int[] inorder2 = {2, 1};
+        TreeNode root2 = buildBinaryTree(inorder2, preorder2);
+        System.out.print("Test 2 Preorder: ");
+        printPreorder(root2);
+        System.out.println();
     }
 }
