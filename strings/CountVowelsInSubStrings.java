@@ -2,7 +2,7 @@ package strings;
 import java.util.*;
 import java.io.*;
 
-public class CountVowelsInSubStrings{
+public class CountVowelsInSubStrings {
 
     /**
      * You are given a string ‘str’ of even length. Your task is to find out if we
