@@ -1,7 +1,7 @@
 package arrays;
 import java.util.Arrays;
 /**
- * Solution to find the k closest elements to a given value x in a sorted array.
+ * MinimumSum to find the k closest elements to a given value x in a sorted array.
  * Uses binary search to find the closest position to x, then expands left and right
  * to select k elements based on minimum difference from x.
  */

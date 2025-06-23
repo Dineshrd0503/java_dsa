@@ -10,7 +10,7 @@ public class NthFibbonacci {
         System.out.println(fibbonacci(n));
 
 
-        /* Your class should be named Solution.
+        /* Your class should be named MinimumSum.
          * Read input as specified in the question.
          * Print output as specified in the question.
          */

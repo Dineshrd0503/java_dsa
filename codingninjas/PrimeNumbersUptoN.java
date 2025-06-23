@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PrimeNumbersUptoN {
     public static void main(String[] args) {
 
-        /* Your class should be named Solution.
+        /* Your class should be named MinimumSum.
          * Read input as specified in the question.
          * Print output as specified in the question.
          */

@@ -26,7 +26,7 @@ import java.util.*;
 public class FindArrayP {
 
     /**
-     * Solution Method
+     * MinimumSum Method
      *
      * Proof of correctness:
      * Let P[0] = x, P[1] = y, P[2] = z

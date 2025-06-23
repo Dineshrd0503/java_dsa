@@ -1,7 +1,7 @@
 package arrays;
 
 /**
- * Solution to count mega prime numbers in a given range [left, right].
+ * MinimumSum to count mega prime numbers in a given range [left, right].
  * A mega prime is a prime number where each digit is also prime (2, 3, 5, 7).
  */
 public class MegaPrimeCounter {
