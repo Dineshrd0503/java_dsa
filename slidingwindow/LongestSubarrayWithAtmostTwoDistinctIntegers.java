@@ -35,6 +35,7 @@ public class LongestSubarrayWithAtmostTwoDistinctIntegers {
                 left++;
             }
 
+
             maxLength = Math.max(maxLength, right - left + 1);
         }
 
