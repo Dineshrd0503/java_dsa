@@ -1,4 +1,15 @@
 package logicwhilepatterns;
+/*
+123456789
+ 1234567
+  12345
+   123
+    1
+   123
+  12345
+ 1234567
+123456789
+ */
 
 public class SandGlassNumberPattern {
     public static void main(String[] args) {
