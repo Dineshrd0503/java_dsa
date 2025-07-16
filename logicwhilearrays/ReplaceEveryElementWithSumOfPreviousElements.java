@@ -1,6 +1,14 @@
 package logicwhilearrays;
 
 import java.util.Arrays;
+/*
+Given an integer array, replace every element with the sum of all previous elements (excluding itself). The first element remains unchanged.
+
+Sample Input:
+a = {1, 2, 3, 4, 5}
+Sample Output:
+[1, 1, 3, 6, 10]
+ */
 
 public class ReplaceEveryElementWithSumOfPreviousElements {
     public static void main(String[] args) {

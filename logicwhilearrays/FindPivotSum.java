@@ -1,6 +1,25 @@
 package logicwhilearrays;
 
 import java.util.Arrays;
+/*
+Problem Statement:
+Given an integer array, find the pivot index. The pivot index is the index where the sum of all elements to the left is equal to the sum of all elements to the right. If no such index exists, return -1.
+
+Sample Input 1:
+a = {3, 0, 1}
+Sample Output 1:
+pivot index is 1
+
+Sample Input 2:
+a = {1, 7, 3, 6, 5, 6}
+Sample Output 2:
+pivot index is 3
+
+Sample Input 3:
+a = {1, 2, 3}
+Sample Output 3:
+pivot index is -1
+ */
 
 public class FindPivotSum {
     public static void main(String[] args) {
