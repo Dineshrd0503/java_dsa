@@ -13,20 +13,16 @@ public class SortTheArrayBasedOnParity {
     public static void main(String[] args) {
         int[] a={3, 1, 2, 4};
         int n = a.length;
-
-        // Sort the array based on parity
         for (int i = 0; i < n-1 ; i++) {
             for (int j = i + 1; j < n; j++) {
-                // Check if both numbers are even or both are odd
                 if ((a[i] % 2 != a[j] % 2) && (a[i] > a[j])) {
-                    // Swap a[i] and a[j]
                     int temp = a[i];
                     a[i] = a[j];
                     a[j] = temp;
                 }
             }
         }
-        // Print the sorted array
+
         System.out.print("Sorted array based on parity: ");
         for (int i = 0; i < n; i++) {
             System.out.print(a[i] + " ");
