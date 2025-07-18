@@ -32,6 +32,19 @@ public class BasicStringMethods {
         System.out.println("Concatenated string: " + s3.concat(" ").concat(s4));
         System.out.println("Is s equal to 'hello world'? " + s.equals("hello world"));
         System.out.println("Is s equal to 'Hello World' (ignore case)? " + s.equalsIgnoreCase("Hello World"));
+        String a="hellow wordl";
+        System.out.println("converting ot byte array");
+        byte[] byteArray = a.getBytes();
+        System.out.print("Byte array: ");
+        for (byte b : byteArray) {
+            System.out.print(b + " ");
+        }
+        System.out.println("using toStrnig and prseInt");
+        String numStr = "12345";
+        int num = Integer.parseInt(numStr);
+        System.out.println("Parsed integer: " + num);
+        String numStr2 = Integer.toString(num);
+        System.out.println("Converted back to string: " + numStr2);
     }
 
     public static void reverseString(String s, int index) {
