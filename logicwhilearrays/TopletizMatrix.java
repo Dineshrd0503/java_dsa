@@ -2,7 +2,7 @@ package logicwhilearrays;
 
 public class TopletizMatrix {
     public static void main(String[] args) {
-        int[][] a = new int[][]{{1, 2, 3,4}, {4, 1, 6,4}, {7, 8, 1,4}};
+        int[][] a = new int[][]{{1, 2, 3,4}, {5,1, 2,3}, {9, 5, 1,2}};
         System.out.println(isTopletizMatrix(a));
     }
 
