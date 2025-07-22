@@ -1,32 +1,39 @@
 package logicwhileoops;
 
 public class Pratice1 {
-    static class Student{
+    static class Student {
         String name;
         int rollNo;
         int age;
-    Student() {
-        this.name = "aravind"
-        ;
-        rollNo = 0;
-        age = 0;
-    }
+
+        Student() {
+            this.name = "Unknown";
+            this.rollNo = 0;
+            this.age = 0;
+        }
+
         @Override
         public String toString() {
             return "Student{" +
-                    "name='" + name + '\'' +
+                    "name='" + this.name + '\'' +
                     ", rollNo=" + rollNo +
                     ", age=" + age +
                     '}';
         }
-    }
-    public static void main(String[] args) {
-        Student student = new Student();
-        student.name = "Ard";
-        student.rollNo = 1;
-        student.age = 20;
+
+        public static void greet() {
+            System.out.println("Hello, welcome to the Student class!");
+        }
+
+        public static void main(String[] args) {
+            Student student = new Student();
+            student.name = "Ard";
+            student.rollNo = 1;
+            student.age = 20;
 
 
-        System.out.println(student);
+            System.out.println(student);
+            greet();
+        }
     }
 }
