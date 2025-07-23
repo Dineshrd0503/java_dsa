@@ -9,6 +9,9 @@ public class Main  {
         String accno=sc.nextLine();
         System.out.println("enter your baalnce");
         double balance=sc.nextDouble();
+        BankAccount b=new BankAccount(accno, balance);
+        b.setAccno(accno);
+        b.setBalance(balance);
         SavingsAccount s=new SavingsAccount(accno, balance);
         while(true){
             System.out.println("1.Deposit\n2.Withdraw\n3.Check Balance\n4.Exit\n5.overdraftlimit\n6.fdaccount\n7.savingsaccount");

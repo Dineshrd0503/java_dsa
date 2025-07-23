@@ -3,6 +3,19 @@ package logicwhileoops.inheritanceproject;
 public  class BankAccount implements Opeartions {
     static String accno;
     static double balance;
+
+    public static String getAccno() {
+        return accno;
+    }
+
+    public static void setAccno(String accno) {
+        BankAccount.accno = accno;
+    }
+
+    public static void setBalance(double balance) {
+        BankAccount.balance = balance;
+    }
+
     public BankAccount(String accno1, double balance1) {
         accno = accno1;
         balance = balance1;
@@ -29,4 +42,6 @@ public  class BankAccount implements Opeartions {
     public double getBalance() {
         return balance;
     }
+
+
 }
