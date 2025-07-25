@@ -1,4 +1,4 @@
-package logicwhilelists;
+package logicwhilecollections;
 
 import java.util.HashMap;
 

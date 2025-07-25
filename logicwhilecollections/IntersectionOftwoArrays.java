@@ -1,4 +1,4 @@
-package logicwhilelists;
+package logicwhilecollections;
 
 import java.util.HashSet;
 import java.util.Arrays;
