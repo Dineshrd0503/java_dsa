@@ -1,3 +1,5 @@
+package arrays;
+
 /**
  * Problem Statement:
  * Find the number of subarrays in an unsorted integer array whose sum equals a given number k.
@@ -57,7 +59,7 @@ public class CountSubArraysWithSumK {
      * @param args Command-line arguments (not used)
      */
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        CountSubArraysWithSumK solution = new CountSubArraysWithSumK();
 
         // Test Case 1: arr[] = [10, 2, -2, -20, 10], k = -10
         int[] arr1 = {10, 2, -2, -20, 10};

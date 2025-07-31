@@ -13,7 +13,7 @@
  * 
  * Date: 11:42 AM IST, Wednesday, July 30, 2025
  */
-
+package arrays;
 public class LongestSubarrayWithMaximumBitwiseAND{
     /**
      * Finds the length of the longest subarray with the maximum bitwise AND.
@@ -50,7 +50,7 @@ public class LongestSubarrayWithMaximumBitwiseAND{
      * @param args Command-line arguments (not used)
      */
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        LongestSubarrayWithMaximumBitwiseAND solution = new LongestSubarrayWithMaximumBitwiseAND();
 
         // Test Case 1: nums = [1, 2, 3, 3, 2, 2]
         int[] nums1 = {1, 2, 3, 3, 2, 2};

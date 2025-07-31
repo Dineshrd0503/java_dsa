@@ -17,7 +17,7 @@
  * 
  * Date: 09:45 AM IST, Wednesday, July 30, 2025
  */
-
+package linkedlists;
 public class InsertionInCircularLinkedList {
     // Definition for singly-linked list node
     static class Node {
@@ -83,7 +83,7 @@ public class InsertionInCircularLinkedList {
      * @param args Command-line arguments (not used)
      */
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        InsertionInCircularLinkedList solution = new InsertionInCircularLinkedList();
 
         // Test Case 1: k = 0, val = 5, list = [1, 2, 3, 4]
         Node head1 = new Node(1);

@@ -14,7 +14,7 @@
  * 
  * Date: 09:51 AM IST, Wednesday, July 30, 2025
  */
-
+package linkedlists;
 public class InsertInASortedCircularLinkedLists {
     // Definition for singly-linked list node
     static class Node {
@@ -93,8 +93,7 @@ public class InsertInASortedCircularLinkedLists {
      * @param args Command-line arguments (not used)
      */
     public static void main(String[] args) {
-        Solution solution = new Solution();
-
+        InsertInASortedCircularLinkedLists solution = new InsertInASortedCircularLinkedLists();
         // Test Case 1: head = 1->2->4, data = 2
         Node head1 = new Node(1);
         head1.next = new Node(2);

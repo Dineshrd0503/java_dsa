@@ -1,8 +1,9 @@
+package arrays;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Solution {
+
     /**
      * There are `n` kids with candies. You are given an integer array `candies`,
      * where each `candies[i]` represents the number of candies the `ith` kid has,
@@ -51,10 +52,7 @@ class Solution {
      * 2 <= n <= 100
      * 1 <= candies[i] <= 100
      * 1 <= extraCandies <= 50
-     *
-     *
-     * @param candies     The array containing the number of candies each kid has.
-     * @param extraCandies The number of extra candies.
+    The number of extra candies.
      * @return A boolean array representing whether each kid can have the greatest number of candies.
      */
   public class KidsWithGreatestNumberOfCandies {
