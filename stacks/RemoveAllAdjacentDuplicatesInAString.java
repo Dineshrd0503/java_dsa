@@ -46,7 +46,7 @@ public class RemoveAllAdjacentDuplicatesInAString {
     }
 
     public static void main(String[] args) {
-        RemoveAllAdjacentDuplicatesInAString s=new RemoveAllAdjacentDuplicatesInAString();
+        RemoveAllAdjacentDuplicatesInAString solution=new RemoveAllAdjacentDuplicatesInAString();
         String s1 = "abbaca";
         System.out.println("Input: " + s1 + ", Output: " + solution.removeDuplicates(s1)); // Expected: "ca"
 

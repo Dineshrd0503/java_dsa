@@ -1,6 +1,7 @@
+package arrays;
 import java.util.ArrayList;
 import java.util.List;
-package arrays;
+
 /*
 Problem Statement:
 Given an integer `numRows`, return the first numRows of **Pascal's triangle**.
