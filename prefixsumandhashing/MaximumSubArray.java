@@ -1,3 +1,5 @@
+package prefixsumandhashing;
+
 /**
  * Problem: Maximum Subarray
  *
