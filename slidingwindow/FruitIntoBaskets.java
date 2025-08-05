@@ -66,7 +66,7 @@ public class FruitIntoBaskets {
     }
 
     public static void main(String[] args) {
-       FruitIntoBaskets solution = new FruitsIntoBaskets();
+       FruitIntoBaskets solution = new FruitIntoBaskets();
 
         // Test cases
         int[] fruits1 = {1, 2, 1};
