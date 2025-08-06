@@ -30,6 +30,11 @@ public class AddTwoNumbers {
     public static void main(String[] args) {
         // Example usage // Output: 17
 
+        int num1 = 12;
+        int num2 = 5;
+        int result = sumRecursive(num1, num2);
+        System.out.println("The sum of " + num1 + " and " + num2 + " is: " + result); // Output: 17
+
         num1 = -10;
         num2 = 4;
         result = sumRecursive(num1, num2);
@@ -48,7 +53,7 @@ public class AddTwoNumbers {
 
       //Example w/o recursion
 
-        Addtwonumbers sol = new AddTwoNumbers();
+        AddTwoNumbers sol = new AddTwoNumbers();
 
         num1 = 12;
         num2 = 5;
