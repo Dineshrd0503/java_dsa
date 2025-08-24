@@ -44,7 +44,7 @@ public class RemoveNthFromEnd {
         ListNode second = dummy;
 
         // Advance 'first' pointer n+1 times so that the gap between first/second is n nodes
-        for (int i = 1; i <= n + 1; i++) {
+        for (int i = 0; i <= n ; i++) {
             first = first.next;
         }
 
