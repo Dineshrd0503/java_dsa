@@ -44,12 +44,12 @@ public class RemoveNthFromEnd {
         ListNode second = dummy;
 
         // Advance 'first' pointer n+1 times so that the gap between first/second is n nodes
-        for (int i = 0; i <= n ; i++) {
+        for (int i = 0; i <n ; i++) {
             first = first.next;
         }
 
         // Move both pointers; when 'first' hits the end, 'second' is just before deletion node
-        while (first != null) {
+        while (first.next != null) {
             first = first.next;
             second = second.next;
         }
