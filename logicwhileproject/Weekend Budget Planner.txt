@@ -1,0 +1,510 @@
+                                              Weekend Budget Planner
+                                                  By 22KB1A05E7
+
+Project abstract:-
+This project, the "Weekend Budget Planner," is a console-based Java application designed to provide a lightweight, efficient, and user-friendly solution to this problem. It empowers users to set a specific budget for an event and meticulously track every expense against it, offering immediate feedback and control over their spending.
+
+project structre
+
+logicwhileproject/
+├── src/
+│   └── logicwhileproject/
+│       ├── Main.java                     (Entry Point)
+│       │
+│       ├── controller/
+│       │   └── ExpenseController.java    (Handles user input and directs traffic)
+│       │
+│       ├── service/
+│       │   └── ExpenseService.java       (Contains the core business logic)
+│       │
+│       ├── repository/
+│       │   └── ExpenseRepository.java    (Manages data storage and retrieval)
+│       │
+│       └── model/
+│           ├── Expense.java              (Data model for an expense)
+│           └── Category.java             (Data model for a category)
+│
+
+
+1.Main.java
+
+package logicwhileproject;
+
+import logicwhileproject.controller.ExpenseController;
+
+public class Main {
+    public static void main(String[] args) {
+        ExpenseController expenseController = new ExpenseController();
+        expenseController.start();
+    }
+}
+
+
+2.Model classes
+
+a. Expenses.java
+
+package logicwhileproject.model;
+
+public class Expense {
+    private int id;
+    private String name;
+    private double price;
+    private String date;
+    private String desc;
+    private String category;
+    public Expense(){
+
+    }
+
+    public Expense(int id, String date, double price, String name,String desc, String category) {
+        this.id = id;
+        this.date = date;
+        this.price = price;
+        this.name = name;
+        this.desc=desc;
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", date='" + date + '\'' +
+                ", desc='" + desc + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
+}
+
+b. Category.java
+
+package logicwhileproject.model;
+
+public class Category {
+    private int id;
+    private String name;
+    private String description;
+
+    public Category(int id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+    public Category(String name,String desc) {
+        this.name = name;
+        this.description = "";
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public Category(){
+
+    }
+}
+
+
+3.Controller classes
+
+ExpenseController.java
+
+package logicwhileproject.controller;
+
+import logicwhileproject.model.Expense;
+import logicwhileproject.service.ExpenseService;
+
+import java.util.Scanner;
+
+public class ExpenseController {
+    ExpenseService expenseService = new ExpenseService();
+    Scanner sc = new Scanner(System.in);
+
+    public void start() {
+        while (true) {
+            System.out.println("Welcome to Expense Tracker");
+            System.out.println("1. Add Expense");
+            System.out.println("2. View Expenses");
+            System.out.println("3.edit expense");
+            System.out.println("4. Delete Expense");
+            System.out.println("5. find expense by id");
+            System.out.println("6.find expense by category");
+            System.out.println("7. find expense by date");
+            System.out.println("8.find expense by amount");
+            System.out.println("9.find total expense by date");
+
+            System.out.println("10. Exit");
+            System.out.print("Choose an option: ");
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1 -> {
+                    expenseService.addExpense();
+                    System.out.println("expense added successfully!");
+                }
+                case 2 -> {
+                    System.out.println("Expenses:");
+                    expenseService.viewExpenses();
+                    System.out.println("all expenses viewed successfully!");
+                }
+                case 3 -> {
+                    System.out.print("Enter expense ID to edit: ");
+                    int id = sc.nextInt();
+                    expenseService.editExpense(id);
+                    System.out.println("expense edited successfully!");
+                }
+                case 4 -> {
+                    System.out.print("Enter expense ID to delete: ");
+                    int id = sc.nextInt();
+                    expenseService.deleteExpense(id);
+                    System.out.println("expense deleted successfully!");
+                }
+                case 5 -> {
+                    System.out.print("Enter expense ID to find: ");
+                    int id = sc.nextInt();
+                    Expense expense = expenseService.findExpenseById(id);
+                    if (expense != null) {
+                        System.out.println("Expense found: " + expense);
+                    } else {
+                        System.out.println("Expense not found.");
+                    }
+                }
+                case 6 -> {
+                    System.out.print("Enter category to find expenses: ");
+                    String category = sc.next();
+                    expenseService.findExpenseByCategory(category);
+                    System.out.println("Expenses in category '" + category + "' viewed successfully!");
+                }
+                case 7 -> {
+                    System.out.print("Enter date to find expenses (YYYY-MM-DD): ");
+                    String date = sc.next();
+                    expenseService.findExpenseByDate(date);
+                }
+                case 8 -> {
+                    System.out.print("Enter amount to find expenses: ");
+                    double amount = sc.nextDouble();
+                    expenseService.findExpenseByAmount(amount);
+                }
+                case 9 -> {
+                    System.out.print("Enter date to find total expense: ");
+                    String date = sc.next();
+                    double totalExpense = expenseService.findTotalExpenseByDate(date);
+                    System.out.println("Total expense on " + date + ": " + totalExpense);
+                }
+                case 10 -> {
+                    System.out.println("Exiting Expense Tracker. Goodbye!");
+                    sc.close();
+                    return;
+                }
+
+            }
+        }
+    }
+}
+
+
+4.Service package
+
+a.ExpenseService.java
+
+package logicwhileproject.service;
+
+import logicwhileproject.model.Expense;
+import logicwhileproject.repository.ExpenseRepository;
+
+import java.util.Map;
+import java.util.Scanner;
+
+public class ExpenseService {
+    Scanner sc = new Scanner(System.in);
+    ExpenseRepository expenseRepository = new ExpenseRepository();
+
+    public void addExpense() {
+        System.out.println("enter expense id");
+        int id = sc.nextInt();
+        sc.nextLine(); // Consume newline left-over
+        System.out.println("enter expense name");
+        String name = sc.nextLine();
+        System.out.println("enter expense price");
+        double price = sc.nextDouble();
+        sc.nextLine(); // Consume newline left-over
+        System.out.println("enter expense date");
+        String date = sc.nextLine();
+        System.out.println("enter expense category");
+        String categoryName = sc.nextLine();
+        System.out.println("enter expense description");
+        String description = sc.nextLine();
+        Expense expense = new Expense(id, date, price, name, description, categoryName);
+        expenseRepository.addExpense(expense);
+
+
+    }
+
+    public void viewExpenses() {
+        Map<Integer, Expense> values = expenseRepository.getAllExpenses();
+        if (values.isEmpty()) {
+            System.out.println("No expenses found.");
+        } else {
+            System.out.println("Expenses:");
+            for (Map.Entry<Integer, Expense> entry : values.entrySet()) {
+                Expense expense = entry.getValue();
+                System.out.println("ID: " + expense.getId() + ", Name: " + expense.getName() +
+                        ", Price: " + expense.getPrice() + ", Date: " + expense.getDate() +
+                        ", Category: " + expense.getCategory() + ", Description: " + expense.getDesc());
+            }
+        }
+
+    }
+
+    public String editExpense(int id) {
+        if (!expenseRepository.checkforId(id))
+            return "Expense with ID " + id + " not found.";
+        else {
+            System.out.println("Enter new expense name:");
+            String name = sc.nextLine();
+            System.out.println("Enter new expense price:");
+            double price = sc.nextDouble();
+            sc.nextLine(); // Consume newline left-over
+            System.out.println("Enter new expense date:");
+            String date = sc.nextLine();
+            System.out.println("Enter new expense category:");
+            String categoryName = sc.nextLine();
+            System.out.println("Enter new expense description:");
+            String description = sc.nextLine();
+            Expense expense = new Expense(id, date, price, name, description, categoryName);
+            expenseRepository.updateExpense(expense);
+            return "Expense updated successfully.";
+        }
+
+}
+
+    public String deleteExpense(int id) {
+        if(!expenseRepository.checkforId(id))
+            return "Expense with ID " + id + " not found.";
+        else {
+            expenseRepository.deleteExpense(id);
+            return "Expense with ID " + id + " deleted successfully.";
+        }
+    }
+
+    public void findExpenseByCategory(String category) {
+        Map<String, Expense> expensesByCategory = expenseRepository.getExpensesByCategory(category);
+        for(Map.Entry<String, Expense> entry : expensesByCategory.entrySet()) {
+            Expense expense = entry.getValue();
+            System.out.println("ID: " + expense.getId() + ", Name: " + expense.getName() +
+                    ", Price: " + expense.getPrice() + ", Date: " + expense.getDate() +
+                    ", Category: " + expense.getCategory() + ", Description: " + expense.getDesc());
+        }
+    }
+
+    public void findExpenseByDate(String date) {
+        Map<String, Expense> expensesByDate = expenseRepository.getExpensesByDate(date);
+        for(Map.Entry<String, Expense> entry : expensesByDate.entrySet()) {
+            Expense expense = entry.getValue();
+            System.out.println("ID: " + expense.getId() + ", Name: " + expense.getName() +
+                    ", Price: " + expense.getPrice() + ", Date: " + expense.getDate() +
+                    ", Category: " + expense.getCategory() + ", Description: " + expense.getDesc());
+        }
+    }
+
+    public void findExpenseByAmount(double amount) {
+        Map<Double,Expense> expensesByAmount = expenseRepository.getExpensesByAmount(amount);
+        for(Map.Entry<Double, Expense> entry : expensesByAmount.entrySet()) {
+            Expense expense = entry.getValue();
+            System.out.println("ID: " + expense.getId() + ", Name: " + expense.getName() +
+                    ", Price: " + expense.getPrice() + ", Date: " + expense.getDate() +
+                    ", Category: " + expense.getCategory() + ", Description: " + expense.getDesc());
+        }
+    }
+
+    public double findTotalExpenseByDate(String date) {
+    Map<String, Expense> expensesByDate = expenseRepository.getExpensesByDate(date);
+    double totalExpense = 0.0;
+    for (Expense expense : expensesByDate.values()) {
+        totalExpense += expense.getPrice();
+    }
+        return totalExpense;
+    }
+
+    public Expense findExpenseById(int id) {
+        Expense expense=expenseRepository.getExpenseById(id);
+        return expense;
+    }
+}
+
+
+5.Repository package
+
+a.ExpenseRepository.java
+
+package logicwhileproject.repository;
+
+import logicwhileproject.model.Category;
+import logicwhileproject.model.Expense;
+import logicwhileproject.service.ExpenseService;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ExpenseRepository {
+    private final HashMap<Integer, Expense> expenseMap = new HashMap<>();
+    private final HashMap<Integer, Category> categoryMap = new HashMap<>();
+
+    public String addExpense(Expense expense) {
+        if (expense != null) {
+            expenseMap.put(expense.getId(), expense);
+            // First, create a new Category object
+            Category category = new Category(expense.getName(), expense.getDesc());
+
+// Then, put it in the map
+            categoryMap.put(expense.getId(), category);return "Expense added successfully!";
+
+        } else {
+            return "Expense cannot be null!";
+        }
+    }
+    public Map<Integer,Expense> getAllExpenses() {
+        // Returning a new ArrayList prevents external code from modifying our internal map directly.
+        return expenseMap;
+    }
+
+    public Expense getExpenseById(int id) {
+        if (expenseMap.containsKey(id)) {
+            return expenseMap.get(id);
+        } else {
+            return null; // or throw an exception
+        }
+    }
+
+    public boolean checkforId(int id){
+        return expenseMap.containsKey(id);
+    }
+
+    public void updateExpense(Expense expense) {
+        Expense existingExpense = expenseMap.get(expense.getId());
+        if (existingExpense != null) {
+            // Update the existing expense with new values
+            existingExpense.setName(expense.getName());
+            existingExpense.setDesc(expense.getDesc());
+            existingExpense.setPrice(expense.getPrice());
+            existingExpense.setDate(expense.getDate());
+            // Update the category as well
+            Category category = new Category(expense.getName(), expense.getDesc());
+            categoryMap.put(expense.getId(), category);
+        } else {
+            throw new IllegalArgumentException("Expense with ID " + expense.getId() + " does not exist.");
+        }
+    }
+
+    public void deleteExpense(int id) {
+        if (expenseMap.containsKey(id)) {
+            expenseMap.remove(id);
+            categoryMap.remove(id); // Also remove the associated category
+        } else {
+            throw new IllegalArgumentException("Expense with ID " + id + " does not exist.");
+        }
+    }
+
+    public Map<String, Expense> getExpensesByCategory(String category) {
+        Map<String, Expense> filteredExpenses = new HashMap<>();
+        for (Expense expense : expenseMap.values()) {
+            if (expense.getCategory().equalsIgnoreCase(category)) {
+                filteredExpenses.put(expense.getName(), expense);
+            }
+        }
+        return filteredExpenses;
+    }
+
+    public Map<String, Expense> getExpensesByDate(String date) {
+        Map<String, Expense> filteredExpenses = new HashMap<>();
+        for (Expense expense : expenseMap.values()) {
+            if (expense.getDate().equals(date)) {
+                filteredExpenses.put(expense.getName(), expense);
+            }
+        }
+        return filteredExpenses;
+    }
+
+    public Map<Double, Expense> getExpensesByAmount(double amount) {
+        Map<Double, Expense> filteredExpenses = new HashMap<>();
+        for (Expense expense : expenseMap.values()) {
+            if (expense.getPrice() == amount) {
+                filteredExpenses.put(expense.getPrice(), expense);
+            }
+        }
+        return filteredExpenses;
+    }
+}
+
+
+
+This is an prototype of fully functional weekend budget planner
