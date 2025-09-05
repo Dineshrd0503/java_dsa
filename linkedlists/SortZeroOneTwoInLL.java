@@ -28,38 +28,28 @@ public class SortZeroOneTwoInLL {
 
     // Function to segregate 0s, 1s, and 2s in a linked list
     public Node segregate(Node head) {
-        int count0 = 0, count1 = 0, count2 = 0;
-        Node temp = head;
+        Node zeroD = new Node(0), oneD = new Node(0), twoD = new Node(0);
+        Node zero = zeroD, one = oneD, two = twoD;
+        Node curr = head;
 
-        // Counting occurrences of 0s, 1s, and 2s
-        while (temp != null) {
-            if (temp.data == 0) {
-                count0++;
-            } else if (temp.data == 1) {
-                count1++;
-            } else if (temp.data == 2) {
-                count2++;
-            }
-            temp = temp.next;
-        }
-
-        // Reassigning values in the linked list based on counts
-        temp = head;
-        while (temp != null) {
-            if (count0 > 0) {
-                temp.data = 0;
-                count0--;
-            } else if (count1 > 0) {
-                temp.data = 1;
-                count1--;
+        while (curr != null) {
+            if (curr.data == 0) {
+                zero.next = curr;
+                zero = zero.next;
+            } else if (curr.data == 1) {
+                one.next = curr;
+                one = one.next;
             } else {
-                temp.data = 2;
-                count2--;
+                two.next = curr;
+                two = two.next;
             }
-            temp = temp.next;
+            curr = curr.next;
         }
-
-        return head;
+        // Connect parts: 0s -> 1s -> 2s
+        zero.next = (oneD.next != null) ? oneD.next : twoD.next;
+        one.next = twoD.next;
+        two.next = null;
+        return zeroD.next;
     }
 
     // Utility function to print the linked list
