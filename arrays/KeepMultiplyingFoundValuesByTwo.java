@@ -1,4 +1,4 @@
-packaghe arrays;
+package arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,8 +36,8 @@ import java.util.Set;
     /**
      * Finds the final value of original after repeatedly multiplying it by two if it is found in nums.
      *
-     * @param nums     The array of integers.
-     * @param original The initial value to search for.
+     * @ The array of integers.
+     * @The initial value to search for.
      * @return The final value of original.
      */
    
