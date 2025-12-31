@@ -67,20 +67,9 @@ public class AddLinkedListsRightToLeft {
         return prev;
     }
     private static Node checkzeros(Node head){
-        if(head==null)
-            return head;
-        Node curr=head;
-        int zeros=0;
-        while(curr!=null&&curr.data==0){
-            zeros++;
-            curr=curr.next;
-        }
-        if(curr==null)
-            return head;
-        Node newhead=head;
-        for(int i=0;i<zeros;i++)
-            newhead=newhead.next;
-        return newhead;
+        while(head!=null&&head.data==0)
+            head=head.next;
+        return head;
     }
     public static void main(String[] args) {
         Node head1=new Node(9);
